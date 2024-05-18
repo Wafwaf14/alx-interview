@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import random
 import sys
 import signal
 
@@ -29,7 +30,7 @@ try:
         if len(parts) < 9:
             continue
         
-        ip, dash, date, method, url, protocol, status, size = parts[0], parts[1], parts[3], parts[4], parts[5], parts[6], parts[8], parts[9]
+        ip, dash, date, method, url, protocol, status, size = parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]
         
         # Check the format of the line
         if dash != '-' or not date.startswith('[') or not date.endswith(']') or method != '"GET' or url != '/projects/260' or protocol != 'HTTP/1.1"':
