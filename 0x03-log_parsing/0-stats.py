@@ -9,10 +9,10 @@ line_count = 0
 
 def print_statistics():
     """Prints the current statistics."""
-    print(f"File size: {total_size}")
+    print("File size: {}".format(total_size))
     for status_code in sorted(status_counts.keys()):
         if status_counts[status_code] > 0:
-            print(f"{status_code}: {status_counts[status_code]}")
+            print("{}: {}".format(status_code, status_counts[status_code]))
 
 def signal_handler(sig, frame):
     """Handles keyboard interruption (CTRL + C)."""
@@ -58,3 +58,4 @@ except KeyboardInterrupt:
 # Print final statistics if there are any remaining lines
 if line_count % 10 != 0:
     print_statistics()
+
