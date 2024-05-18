@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import sys
 import signal
 
@@ -10,7 +9,7 @@ line_count = 0
 
 def print_statistics():
     """Prints the current statistics."""
-    print(f"Total file size: {total_size}")
+    print(f"File size: {total_size}")
     for status_code in sorted(status_counts.keys()):
         if status_counts[status_code] > 0:
             print(f"{status_code}: {status_counts[status_code]}")
@@ -27,10 +26,10 @@ try:
     for line in sys.stdin:
         parts = line.split()
         
-        if len(parts) < 7:
+        if len(parts) < 9:
             continue
         
-        ip, dash, date, method, url, protocol, status, size = parts[0], parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]
+        ip, dash, date, method, url, protocol, status, size = parts[0], parts[1], parts[3], parts[4], parts[5], parts[6], parts[8], parts[9]
         
         # Check the format of the line
         if dash != '-' or not date.startswith('[') or not date.endswith(']') or method != '"GET' or url != '/projects/260' or protocol != 'HTTP/1.1"':
